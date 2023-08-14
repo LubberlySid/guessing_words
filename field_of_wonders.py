@@ -49,18 +49,20 @@ def main():
             break
 
         if number_of_attempts <= 0:
-            print(f"You've run out of attempts. The word was {selected_word}")
+            print(f"You've run out of attempts. The word was: {selected_word}")
+            break
 
         user_input = input("Enter the word/letter: ").lower()
-
-        if len(user_input) != 1 or not user_input.isalpha():
-            print("Enter the single letter")
 
         if user_input in guessed_letters:
             print("You've already guessed this letter")
             continue
 
         guessed_letters.append(user_input)
+
+        if user_input == selected_word:
+            print("Congratulations! You win!")
+            break
 
         if user_input in selected_word:
             print("Correct!")
